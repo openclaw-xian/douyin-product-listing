@@ -1,0 +1,53 @@
+{
+  "chrome": "",
+  "chrome_profile": "",
+  "node": "",
+  "npm": "",
+  "python": "",
+  "playwright_core": "",
+  "workdir": "",
+  "default_port": 9228,
+  "reuse_profile": true,
+  "shops": {
+    "示例店铺": {
+      "port": 9228,
+      "page_kind": "unknown",
+      "brand": "示例品牌",
+      "templates": {},
+      "note": "企业店，抖店已登录（fxg.jinritemai.com）"
+    }
+  },
+  "_note_shops": "★ 多店铺唯一权威，**不要写死店铺**。一家店 = 一个独立 Chrome 实例（独立 --user-data-dir）+ 独立调试端口；加店只需在这里加一条（店名→port），代码不用动。字段：port(必填) / page_kind(旧版·新版页面差异，同 pdd) / brand(该店可用品牌，仍要按门禁 43 逐单确认) / templates(该店的类目素材包覆盖，**类目选项集是店级的**) / note。用 preflight.ps1 -Shop 店名 或 run_until_green.ps1 -Shop 店名1,店名2 按店跑；不传 -Shop 时：只登记一家就直接用它，登记多家会要求你指定（不猜）。",
+  "templates": {
+    "墙贴": {
+      "path": "C:\\Users\\<你的用户名>\\Desktop\\抖音\\抖音墙贴发布素材包\\商品信息.xlsx",
+      "cate_id": "1000005101",
+      "category": "居家日用 > 居家饰品 > 装饰贴/冰箱贴/墙贴/瓷砖/玻璃贴",
+      "note": "GPE-002 / GPE-003 / GPVC-001 用过；有「商品详情」字段，无「参考价」字段"
+    },
+    "墙纸": {
+      "path": "C:\\Users\\<你的用户名>\\Desktop\\抖音\\抖音墙纸发布素材包\\商品信息.xlsx",
+      "cate_id": "1000004860",
+      "category": "家装建材 > 墙面材料 > 墙纸",
+      "note": "66 列；有「商品详情」与「参考价」字段。2026-10-09 端到端实测（借 GPVC-001 数据）：参考价是**默认关闭的开关**，不卡必填，必填 100%、报错 []；机制见 SKILL.md 门禁 46"
+    },
+    "地垫": {
+      "path": "C:\\Users\\<你的用户名>\\Desktop\\抖音\\地垫发布素材包\\商品信息.xlsx",
+      "cate_id": "1000005122",
+      "category": "居家日用 > 居家布艺 > 地布/地席/地垫/地毯",
+      "note": "ZDT-001 / ZDT-002 / ZDT-003 用过；无「商品详情」字段与目录 → 商详图要 --detail-dir。⚠ 属性值必须落在店铺选项表里：ZDT-003 的源值「聚酯纤维/按件/办公室」都不在表内（店里是「聚酯纤维（涤纶）」/「成品地垫（元/块）」），按门禁 44 问用户"
+    },
+    "猫抓板": {
+      "path": "C:\\Users\\<你的用户名>\\Desktop\\猫抓板发布素材包\\商品信息.xlsx",
+      "cate_id": "1000002568",
+      "category": "宠物生活 > 猫/狗玩具 > 猫抓板",
+      "note": "MZB-007 / MZB-015 用过；用户提供的模板，注意它可能残留上一条链接的数据（R5 起）"
+    }
+  },
+  "_note_shops_extra": "同一 Chrome 里可能同时登着拼多多 —— dy_flow 只挑 jinritemai 域名的页面。★ 不要写死店铺名到脚本或文档里，一律从 shops 读。",
+  "_note_python": "PATH 上的 python 可能缺 openpyxl；resolve_env 优先 config.python > DY_PYTHON > MIMO_PYTHON",
+  "_note_playwright": "playwright_core 一般**留空**：技能自带 tools/npm/node_modules/playwright-core（约13MB），解析顺序 DY_PLAYWRIGHT > 技能自带 > 机器级；想指定别的版本才填，查当前用哪份：node scripts/which_pw.js",
+  "_note_selftest": "改过脚本先跑 scripts/selftest.ps1（8 类机械检查，含夹具干跑比对基线）；-Quick 跳过 CDP 端口部分",
+  "_note_target": "抖店商品发布页 https://fxg.jinritemai.com/ffa/g/create ，商品列表 /ffa/g/list",
+  "_note_templates": "类目 → 该商品的「抖店素材包」（= 含抖店上架信息的那份：Excel 里的「抖音」sheet 给类目+cateId+属性字段+允许值+SKU 列，另配素材目录）。抖店后台按类目能直接导出。**没有登记的类目要让用户给一份**（门禁 45），不要拿别的类目顶替。用 scripts/preflight.ps1 -Category 类目 -Shop 店名 可检查（模板可被 shops.<店>.templates 按店覆盖，因为类目选项集是店级的）"
+}

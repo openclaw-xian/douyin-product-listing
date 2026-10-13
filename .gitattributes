@@ -1,0 +1,15 @@
+# 只声明二进制类型，显式禁止对它们做任何换行符转换（避免图片/工作簿被 git 改写）。
+# 文本文件（*.ps1 / *.md / *.js / *.py / *.json）不做任何规范化：
+# scripts\*.ps1 必须保持 UTF-8 带 BOM，交给 git 自动转换只会引入风险。
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.webp  binary
+*.xlsx  binary
+*.xls   binary
+*.wasm  binary
+*.ttf   binary
+*.woff  binary
+*.woff2 binary

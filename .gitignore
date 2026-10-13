@@ -1,0 +1,25 @@
+# 真实店铺配置：含店铺名、品牌、本机素材包路径 —— 属于私有信息，不进仓库。
+# 首次使用请复制 config.example.json 为 config.json 并填成自己的值。
+config.json
+
+# 生成的商品包（product.json + ASCII 素材副本 + 图片），是产物不是源码，且体积很大（~230MB）
+output/
+
+# 历史端到端截图与日志（~60MB）
+tests/_archive/
+
+# 每轮运行日志，由 run_until_green.ps1 生成
+tests/_run_attempt_*.log
+
+# 改脚本前留的退路
+_backup/
+
+# Python 字节码
+__pycache__/
+*.pyc
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
